@@ -50,7 +50,7 @@ namespace TestTaskConfiguration.Model
                 typeof(Configuration)
                 .GetProperties()
                 .ToList()
-                .ForEach(property => Console.WriteLine("\t" + property.Name + " : " + property.GetValue(Configurations[i])));
+                .ForEach(p => Console.WriteLine("\t" + p.Name + " : " + p.GetValue(Configurations[i])));
             }
         }
     }
