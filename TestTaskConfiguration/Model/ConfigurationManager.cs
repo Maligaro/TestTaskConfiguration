@@ -25,10 +25,14 @@ namespace TestTaskConfiguration.Model
         public void ReadFromFile(string filePath)
         {
             var extention = Path.GetExtension(filePath);
-            Console.WriteLine("Reading new configuration file from " + filePath + "\n");
             if (Readers.ContainsKey(extention)) //check that we can read file of this format
-                   Configurations.Add(Readers[extention].ReadFromFile(filePath));
-            WriteToConsole();
+            {
+                Console.WriteLine("Reading new configuration from file: " + filePath + "\n");
+                Configurations.Add(Readers[extention].ReadFromFile(filePath));
+                WriteToConsole();
+            }
+            else
+                Console.WriteLine("File extention is not supported, file: " + filePath + "\n");
         }
 
         public void ReadFromFolder(string path)
@@ -43,13 +47,10 @@ namespace TestTaskConfiguration.Model
             for (int i = 0; i < Configurations.Count; i++)
             {
                 Console.WriteLine("Configuration " + i);
-                var properties = typeof(Configuration)
-                    .GetProperties()
-                    .ToList();
-                foreach (var property in properties)
-                {
-                    Console.WriteLine("\t" + property.Name + " : " + property.GetValue(Configurations[i]));
-                }
+                typeof(Configuration)
+                .GetProperties()
+                .ToList()
+                .ForEach(property => Console.WriteLine("\t" + property.Name + " : " + property.GetValue(Configurations[i])));
             }
         }
     }

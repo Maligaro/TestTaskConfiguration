@@ -9,7 +9,7 @@ namespace TestTaskConfiguration
         static void Main(string[] args)
         {
             var configs = new ConfigurationManager();
-            var configFolderPath = "C:\\Users\\Maligaro\\source\\repos\\TestTaskConfiguration\\TestTaskConfiguration\\Configurations\\";
+            var configFolderPath = ".\\Configurations";
             configs.ReadFromFolder(configFolderPath);
         }
     }

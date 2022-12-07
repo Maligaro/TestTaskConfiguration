@@ -11,11 +11,18 @@
     <None Update="Configurations\csv Config.csv">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Csv Config.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Configurations\csv Config.txt">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>csv Config.csv</DependentUpon>
+    </None>
+    <None Update="Configurations\XML Config 1.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Configurations\XML Config 2.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 
