@@ -13,6 +13,9 @@ namespace TestTaskConfiguration.Model.ConfigReaders
         public string Separator { get; set; } = ";";
         public Configuration ReadFromFile(string filepath)
         {
+            if (!Path.GetExtension(filepath).Equals(Extention))
+                throw new Exception($"Expected file extention {Extention}, got {Path.GetExtension(filepath)}, {filepath}");
+
             var lines = File.ReadLines(filepath).ToList();
             if (lines.Count != 2) throw new Exception("Configuration file is invalid " + filepath);
             var keys = lines[0].Split(Separator);

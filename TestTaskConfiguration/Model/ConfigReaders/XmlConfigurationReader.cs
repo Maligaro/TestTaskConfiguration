@@ -14,6 +14,9 @@ namespace TestTaskConfiguration.Model.ConfigReaders
 
         public Configuration ReadFromFile(string filepath)
         {
+            if (!Path.GetExtension(filepath).Equals(Extention))
+                throw new Exception($"Expected file extention {Extention}, got {Path.GetExtension(filepath)}, {filepath}");
+
             var config = new Configuration();
 
             var file = new XmlDocument();
